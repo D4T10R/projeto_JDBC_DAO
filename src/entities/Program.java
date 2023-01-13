@@ -37,6 +37,12 @@ public class Program {
         sellerDao.insert(newSeller);
         System.out.println("Id do seller inserido: " + newSeller.getId());
 
+        System.out.println("\n=== TESTE 4: Seller insert ===");
+        seller = sellerDao.findById(3);
+        seller.setName("Zenith");
+        sellerDao.update(seller);
+        System.out.println("Autalizado");
+
     }
 
 }
