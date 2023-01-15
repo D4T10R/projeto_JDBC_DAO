@@ -1,7 +1,8 @@
-package entities;
+package principal;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
@@ -13,6 +14,7 @@ public class Program {
     public static void main(String[] args) {
 
         SellerDao sellerDao = DaoFactory.createSelelerDao();
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("\n=== TESTE 1: Seller findById ===");
         Seller seller = sellerDao.findById(3);
@@ -37,12 +39,18 @@ public class Program {
         sellerDao.insert(newSeller);
         System.out.println("Id do seller inserido: " + newSeller.getId());
 
-        System.out.println("\n=== TESTE 4: Seller insert ===");
-        seller = sellerDao.findById(3);
-        seller.setName("Zenith");
+        System.out.println("\n=== TESTE 5: Seller update ===");
+        seller = sellerDao.findById(7);
+        seller.setName("ruan");
         sellerDao.update(seller);
         System.out.println("Autalizado");
 
+        System.out.println("\n=== TESTE 6: Seller delete ===");
+        System.out.print("Id que deseja excluir: ");
+        int id = sc.nextInt();
+        sellerDao.deleteById(id);
+        
     }
 
 }
+    
